@@ -1,9 +1,16 @@
- 
 
+//hide an element
+const hide = (Id) => {
+   document.getElementById(Id).style.display = "none";
+}
+//show an element
+const show = (Id) => {
+   document.getElementById(Id).style.display = "block";
+}
   
  function isPangram(){
 
-    const checkTxt = document.getElementById('search').value;
+    const checkTxt = document.getElementById("search").value;
 
      let allLowerCase = checkTxt.toLowerCase(); // converts input to lowercase letters
      
@@ -12,9 +19,20 @@
         //if it does NOT include whole alphabet
      if(!allLowerCase.includes(abc)){
          
-         return false, alert("Sorry, This is not a valid Pangram");
+      show("invalid");
+      
+      return setTimeout( function (){
+            hide("invalid");
+         }, 3000);
         }
+
      }
-     return true, alert("Good Job, You've created a valid Pangram!"); // if whole alphabet is used
+      // if whole alphabet is used
+     show("valid");
+     
+     return setTimeout( function (){
+      hide("valid");
+   }, 3000);
  }
+
 
